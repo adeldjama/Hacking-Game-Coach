@@ -36,6 +36,8 @@
     b. run Nmap to scan the local network of hack-vm 10.0.0.0/24
     
     c. In the result you can see that the port rdp 3389 is open on the vm 10.0.0.100
+    
+    ![nmap](./images/nmap.jpg)
  
 3. Use a tool from the toolbox to find the login and password that will allow you to connect to the workstation-vm using RDP.
 
@@ -48,10 +50,12 @@
       ```powershell
     .\hydra.exe -t 4 -V -f -L .\username.txt -P .\password.txt rdp://10.0.0.100
     ```
-                
+                   
   d. After some attempt, the application will stop and you can see, the login and the password that have worked
     - Login: johnson
-    - Password: P@ssw0rd1984  
+    - Password: P@ssw0rd1984
+    
+     ![nmap](./images/hydra.jpg)
   
 4. Connect to the workstation-vm using RDP and the login and password found in step 3.
 
@@ -62,11 +66,16 @@
       > set type=all
       > _ldap._tcp.dc._msdcs.contoso.com
     ```
+    
+     ![dc](./images/dc.jpg)
+    
     >**Note**: You can help attendees with this link https://support.avigilon.com/s/article/Windows-How-to-Get-the-IP-Port-Used-and-IP-Addresses-of-Domain-Controllers-AD-Servers?language=en_US
 
 6. Use a tool from the toolbox, (a) to find the login and password hash of the Domain Admin then (b) to connect to the domain controller using RDP.
 
     a. Disable "Real-time Protection", "Cloud-delivered protection" and "Automatic sample submission" in Windows Security
+    
+    ![win-sec](./images/windows-security.jpg)
     
     b. Download mimikatz application from https://github.com/ParrotSec/mimikatz
     
@@ -78,6 +87,8 @@
     mimikatz # sekurlsa::logonpasswords
     ```
     
+     ![mimikatz](./images/mimikatz.jpg)
+     
     d. Find the password hash of the domain Admin "dcadmin"
     
     e. Run this command in Mimikatz to connect to Domain controller using RDP
@@ -87,6 +98,8 @@
     ```
     
     f. Introduce the IP address of the domain controller "10.0.1.250" in Computer parameter on MSTC application 
+    
+    ![win-sec](./images/mstc.jpg)
 
 >**Note**: Don't modify the "user name" parameter
 

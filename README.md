@@ -21,9 +21,9 @@
    >**Note**: Don't worry about Warning messages
 
 6. Once the deployment is done, share with attendees information about hack-vm that you get on the output section:
-  - IPAddress
-  - Login
-  - Password 
+    - IPAddress
+    - Login
+    - Password 
 
 ## Solution
 

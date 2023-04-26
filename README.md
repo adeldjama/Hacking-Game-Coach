@@ -34,9 +34,11 @@
 3- Use a tool from the toolbox to find the login and password that will allow you to connect to the workstation-vm using RDP.
   - Download Hydra application from https://github.com/maaaaz/thc-hydra-windows
   - Download username.txt and password.txt files 
-  - Using Hydra application run a brut force attack on rdp port of the vm 10.0.0.100. 
-    
-    cmd: .\hydra.exe -t 4 -V -f -L .\username.txt -P .\password.txt rdp://10.0.0.100
+  - Using Hydra application run a brut force attack on rdp port of the vm 10.0.0.100.         
+  
+          ```powershell 
+          .\hydra.exe -t 4 -V -f -L .\username.txt -P .\password.txt rdp://10.0.0.10
+          ```
     
   - After some attempt, the application will stop and you can see, the login and the password that have worked 
   - 

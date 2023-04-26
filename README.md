@@ -2,19 +2,19 @@
 
 ## Setup instructions
 
-1. Download files from the Setup folder 
+1. Download files from the Setup folder.
 
-2. Start Azure CloudShell
+2. Start Azure CloudShell.
 
-3. Upload to CloudShell the files downloaded from Setup folder 
+3. Upload files downloaded from Setup folder to CloudShell. 
 
-4. If you have many subscriptions, set the subscription where you are going to deploy the environment. for this, you can use the cmd "AZ-SetContext".
+4. If you have many subscriptions, set the subscription where you are going to deploy the environment. For this, you can use the cmd "AZ-SetContext".
     
     ```powershell
     Set-AzContext -SubscriptionId "79c2a240-1a7f-482f-a315-xxxxxxxxx"
     ```
 
-    >**Warning**: **You have to be sure the Auto-provisioning of Defender for Server is not enabled on your subscription**
+    >**Warning**: **You have to be sure that the Auto-provisioning of Defender for Server is not enabled on your subscription**
 
 5. Run the script deploy.ps1
   
@@ -33,7 +33,7 @@
     
     a. Download and install Nmap from "https://nmap.org/download.html"
     
-    b. run Nmap to scan the local network of hack-vm 10.0.0.0/24
+    b. Run Nmap to scan the local network of hack-vm 10.0.0.0/24
     
     c. In the result you can see that the port rdp 3389 is open on the vm 10.0.0.100
     
@@ -45,18 +45,20 @@
 
     b. Download username.txt and password.txt files 
 
-    c. Using Hydra application run a brut force attack on rdp port of the vm 10.0.0.100.         
+    c. Using Hydra application run a brute force attack on rdp port of the vm 10.0.0.100.         
   
       ```powershell
     .\hydra.exe -t 4 -V -f -L .\username.txt -P .\password.txt rdp://10.0.0.100
     ```
-                   
-  d. After some attempt, the application will stop and you can see, the login and the password that have worked
+    
+    d. After some attempts, the application will stop and you can see, the login and the password that have worked
+    
     - Login: johnson
+    
     - Password: P@ssw0rd1984
     
-     ![nmap](./images/hydra.jpg)
-  
+    ![hydra](./images/hydra.jpg)
+    
 4. Connect to the workstation-vm using RDP and the login and password found in step 3.
 
 5. Discover the IP address of the domain controller.  
@@ -86,10 +88,10 @@
     mimikatz # privilege::debug
     mimikatz # sekurlsa::logonpasswords
     ```
-    
-     ![mimikatz](./images/mimikatz.jpg)
-     
+              
     d. Find the password hash of the domain Admin "dcadmin"
+    
+    ![mimikatz](./images/mimikatz.jpg)
     
     e. Run this command in Mimikatz to connect to Domain controller using RDP
     

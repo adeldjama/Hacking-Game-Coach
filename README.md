@@ -105,6 +105,6 @@
 
 >**Note**: Don't modify the "user name" parameter
 
-## Clean 
+## Clean up
 
 1. Run the script delete.ps1

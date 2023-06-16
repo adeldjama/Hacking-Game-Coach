@@ -82,7 +82,7 @@ resource HackVmNetworkSecurityGroup 'Microsoft.Network/networkSecurityGroups@201
           protocol: 'Tcp'
           sourcePortRange: '*'
           destinationPortRange: '3389'
-          sourceAddressPrefix: '82.64.5.6'
+          sourceAddressPrefix: '*'
           destinationAddressPrefix: '*'
           access: 'Allow'
           priority: 100
